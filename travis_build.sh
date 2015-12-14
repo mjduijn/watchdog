@@ -44,11 +44,10 @@ cp /home/travis/build/mjduijn/watchdog/WatchDogIntelliJPlugin/WatchDog/target/li
 cp /home/travis/build/mjduijn/watchdog/WatchDogIntelliJPlugin/WatchDog/target/nl.tudelft.WatchDog-1.6.0-plugin.zip WatchDogIntelliJPlugin-1.6.0.zip
 cp /home/travis/build/mjduijn/watchdog/WatchDogEclipsePlugin/WatchDog/target/nl.tudelft.WatchDog-1.6.0.jar WatchDogEclipsePlugin-1.6.0.jar
 
-s3 buckets
-s3 put mjduijn-watchdog WatchDogCore-1.6.0.jar WatchDogCore-1.6.0.jar
-s3 put mjduijn-watchdog WatchDogIntelliJPlugin-1.6.0.jar WatchDogIntelliJPlugin-1.6.0.jar
-s3 put mjduijn-watchdog WatchDogIntelliJPlugin-1.6.0.zip WatchDogIntelliJPlugin-1.6.0.zip
-s3 put mjduijn-watchdog WatchDogEclipsePlugin-1.6.0.jar WatchDogEclipsePlugin-1.6.0.jar
+aws s3 cp WatchDogCore-1.6.0.jar s3://mjduijn-watchdog
+aws s3 cp WatchDogIntelliJPlugin-1.6.0.jar s3://mjduijn-watchdog
+aws s3 cp WatchDogIntelliJPlugin-1.6.0.zip s3://mjduijn-watchdog
+aws s3 cp WatchDogEclipsePlugin-1.6.0.jar s3://mjduijn-watchdog
 
 
 exit $(($SERVER_STATUS + $CORE_STATUS + $INTELLIJ_CLIENT_STATUS + $ECLIPSE_CLIENT_STATUS))
