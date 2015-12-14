@@ -5,7 +5,9 @@ before_install:
  - sudo apt-get update  
  - sudo apt-get install ruby
  - sudo apt-get install rubygems
+ - sudo apt-get install rubygems
  - sudo gem install bundler
+ - sudo apt-get install awscli
 services:
   - mongodb
 script: ./travis_build.sh
