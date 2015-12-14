@@ -5,10 +5,10 @@ jdk:
   - oraclejdk7
 before_install:  
  - sudo apt-get update  
- - sudo apt-get install ruby
- - sudo apt-get install rubygems-integration
+ - sudo apt-get install -y ruby
+ - sudo apt-get install -y rubygems-integration
  - sudo gem install bundler
- - sudo apt-get install awscli
+ - sudo apt-get install -y awscli
 services:
   - mongodb
 script: ./travis_build.sh
