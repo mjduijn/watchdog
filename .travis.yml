@@ -10,7 +10,6 @@ services:
   - mongodb
 script: ./travis_build.sh
 addons:
-  s3_region: "eu-central-1"
   artifacts:
     debug: true
     paths:
