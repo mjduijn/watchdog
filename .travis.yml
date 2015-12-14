@@ -3,9 +3,8 @@ jdk:
   - oraclejdk7
 before_install:  
  - sudo apt-get update  
- - sudo apt-get install ruby
- - sudo apt-get install rubygems
- - sudo apt-get install rubygems
+ - sudo apt-get install -y ruby
+ - sudo apt-get install -y rubygems
  - sudo gem install bundler
  - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
  - unzip awscli-bundle.zip
