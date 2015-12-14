@@ -1,26 +1,14 @@
-sudo: required
-dist: trusty
 language: java
 jdk:
   - oraclejdk7
 before_install:  
  - sudo apt-get update  
  - sudo apt-get install -y ruby
- - sudo apt-get install -y rubygems-integration
+ - sudo apt-get install -y rubygems
  - sudo gem install bundler
- - sudo apt-get install -y awscli
+ - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+ - unzip awscli-bundle.zip
+ - sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 services:
   - mongodb
 script: ./travis_build.sh
-addons:
-  artifacts:
-    debug: true
-    paths:
-      - WatchDogCore-1.6.0.jar
-      - WatchDogIntelliJPlugin-1.6.0.jar
-      - WatchDogIntelliJPlugin-1.6.0.zip
-      - WatchDogEclipsePlugin-1.6.0.jar
-      - /home/travis/build/mjduijn/watchdog/WatchDogCore/WatchDog/target/nl.tudelft.WatchDogCore-1.6.0.jar
-      - /home/travis/build/mjduijn/watchdog/WatchDogIntelliJPlugin/WatchDog/target/lib/nl.tudelft.WatchDog-1.6.0.jar
-      - /home/travis/build/mjduijn/watchdog/WatchDogIntelliJPlugin/WatchDog/target/nl.tudelft.WatchDog-1.6.0-plugin.zip
-      - /home/travis/build/mjduijn/watchdog/WatchDogEclipsePlugin/WatchDog/target/nl.tudelft.WatchDog-1.6.0.jar
